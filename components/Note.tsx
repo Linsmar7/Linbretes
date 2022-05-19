@@ -43,6 +43,9 @@ export function Note({ notes }: NoteComponentProps) {
     setNoteData({ title, content, id, type });
     setShowModal(true);
   }
+  function handleCloseModal() {
+    setShowModal(false);
+  }
   if (!notes) return <p>Carregando...</p>;
   return (
     <div>
@@ -71,7 +74,11 @@ export function Note({ notes }: NoteComponentProps) {
           </button>
         </div>
       ))}
-      <Modal show={showModal} noteDataUpdate={noteData} />
+      <Modal
+        show={showModal}
+        noteDataUpdate={noteData}
+        close={handleCloseModal}
+      />
     </div>
   );
 }

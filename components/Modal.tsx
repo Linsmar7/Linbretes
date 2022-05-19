@@ -4,10 +4,11 @@ import { NoteProps } from "./Note";
 
 interface ModalProps {
   show: boolean;
+  close: () => void;
   noteDataUpdate: NoteProps;
 }
 
-export function Modal({ show, noteDataUpdate }: ModalProps) {
+export function Modal({ show, close, noteDataUpdate }: ModalProps) {
   const [noteData, setNoteData] = useState<NoteProps>({
     title: "",
     content: "",
@@ -23,7 +24,7 @@ export function Modal({ show, noteDataUpdate }: ModalProps) {
     data: { title: string; content: string; type: string }
   ) {
     try {
-      fetch(`/api/note/${id}`, {
+      await fetch(`/api/note/${id}`, {
         headers: { "Content-Type": "application/json" },
         method: "PUT",
         body: JSON.stringify(data),
@@ -41,7 +42,11 @@ export function Modal({ show, noteDataUpdate }: ModalProps) {
     <div className="flex flex-col">
       <h4>Atualizar Nota</h4>
       <form
-        onSubmit={() => updateNote(noteDataUpdate.id, noteData)}
+        onSubmit={(e) => {
+          e.preventDefault();
+          updateNote(noteDataUpdate.id, noteData);
+          close();
+        }}
         className="flex flex-col"
       >
         <input
