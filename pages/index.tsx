@@ -1,8 +1,8 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import React from "react";
-import { Form } from "../components/Form";
-import { Note, NoteProps } from "../components/Note";
+import { Notes, NoteProps } from "../components/Notes";
+import { Widget } from "../components/Widget";
 import { prisma } from "../lib/prisma";
 
 interface HomeProps {
@@ -17,8 +17,10 @@ const Home = ({ notes }: HomeProps) => {
         <meta name="description" content="Feito para não esquecer!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Form />
-      <Note notes={notes} />
+      <Widget />
+      <section className="mx-10">
+        <Notes notes={notes} />
+      </section>
     </div>
   );
 };
