@@ -1,4 +1,4 @@
-import { CloseButton } from "../../CloseButton";
+import { CloseButton } from "../../Note/CloseButton";
 
 interface NoteSuccessStepProps {
   onNoteRestartRequested: () => void;
@@ -29,10 +29,10 @@ export function NoteSuccessStep({
             fill="white"
           />
         </svg>
-        <span className="text-xl mt-2 text-white">Nota criada!</span>
+        <span className="text-xl mt-2 text-black">Nota criada!</span>
         <button
           type="button"
-          className="py-2 px-6 mt-6 bg-brand-500 rounded-md border-transparent text-sm text-white leading-6 hover:bg-brand-hover transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-brand-500"
+          className="py-2 px-6 mt-6 bg-brand-500 rounded-md border-transparent text-sm text-white leading-6 hover:bg-brand-hover transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-brand-500"
           onClick={onNoteRestartRequested}
         >
           Criar outro

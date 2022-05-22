@@ -34,7 +34,7 @@ export function WidgetForm() {
   }
 
   return (
-    <div className="flex flex-col items-center bg-slate-900 p-4 relative rounded-2xl shadow-lg w-[calc(100vw-2rem)] md:w-auto mb-4">
+    <div className="flex flex-col items-center bg-white p-4 relative rounded-2xl shadow-lg w-[calc(100vw-2rem)] md:w-auto mb-4 border border-brand-500">
       {noteSent ? (
         <NoteSuccessStep onNoteRestartRequested={handleRestartNote} />
       ) : !noteType ? (
@@ -46,7 +46,7 @@ export function WidgetForm() {
           onNoteSent={() => setNoteSent(true)}
         />
       )}
-      <footer className="text-xs text-neutral-400">
+      <footer className="text-xs text-black">
         Feito com ♥ por{" "}
         <a
           href="https://www.linsmarvital.com/"

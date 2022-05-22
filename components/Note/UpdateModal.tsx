@@ -1,7 +1,7 @@
 import { Dialog } from "@headlessui/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { NoteProps } from "./Notes";
+import { NoteProps } from "../Note";
 
 interface UpdateModalProps {
   isOpen: boolean;
@@ -54,7 +54,7 @@ export function UpdateModal({
     >
       <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
       <div className="fixed inset-0 flex items-center justify-center p-4">
-        <Dialog.Panel className="bg-slate-900 p-4 rounded-2xl shadow-lg mb-4 text-white flex flex-col justify-center">
+        <Dialog.Panel className="bg-white p-4 rounded-2xl shadow-lg mb-4 text-black flex flex-col justify-center border-brand-500 border-2">
           <Dialog.Title className="text-xl font-bold">
             Atualizar Nota
           </Dialog.Title>
@@ -73,7 +73,7 @@ export function UpdateModal({
             <input
               type="text"
               placeholder={noteDataUpdate.title}
-              className="w-full text-sm mb-2 p-2 placeholder-slate-400 text-slate-100 border border-slate-600 bg-transparent rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring focus:outline-none"
+              className="w-full text-sm mb-2 p-2 placeholder-slate-400 border border-slate-600 bg-transparent rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring focus:outline-none"
               value={noteData.title}
               onChange={(e) =>
                 setNoteData({ ...noteData, title: e.target.value })
@@ -83,25 +83,25 @@ export function UpdateModal({
               name="content"
               cols={10}
               rows={5}
-              className="min-w-[304px] w-full min-h-[112px] p-2 text-sm placeholder-slate-400 text-slate-100 border border-slate-600 bg-transparent rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring resize-none focus:outline-none scrollbar-thumb-slate-700 scrollbar-track-transparent scrollbar-thin"
+              className="min-w-[304px] w-full min-h-[112px] p-2 text-sm placeholder-slate-400 border border-slate-600 bg-transparent rounded-md focus:border-brand-500 focus:ring-brand-500 focus:ring resize-none focus:outline-none scrollbar-thumb-slate-700 scrollbar-track-transparent scrollbar-thin"
               placeholder={noteDataUpdate.content}
               value={noteData.content}
               onChange={(e) =>
                 setNoteData({ ...noteData, content: e.target.value })
               }
             ></textarea>
-            <div className="flex justify-between">
+            <div className="flex justify-end gap-x-2">
               <button
-                type="submit"
-                className="py-2 px-6 bg-brand-500 rounded-md border-transparent text-sm text-white leading-6 hover:bg-brand-hover transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-brand-500"
-              >
-                Atualizar
-              </button>
-              <button
-                className="py-2 px-6 bg-red-500 rounded-md border-transparent text-sm text-white leading-6 hover:bg-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-brand-500"
+                className="py-2 px-6 border border-red-600 rounded-md border-transparent text-sm text-red-600 leading-6 hover:bg-red-200 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-red-900"
                 onClick={() => setIsOpen(false)}
               >
                 Cancelar
+              </button>
+              <button
+                type="submit"
+                className="py-2 px-6 bg-brand-500 rounded-md border-transparent text-sm text-white leading-6 hover:bg-brand-hover transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-brand-500"
+              >
+                Atualizar
               </button>
             </div>
           </form>

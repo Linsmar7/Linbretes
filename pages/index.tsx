@@ -1,7 +1,8 @@
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import React from "react";
-import { Notes, NoteProps } from "../components/Notes";
+import { NoteProps } from "../components/Note";
+import { Notes } from "../components/Notes";
 import { Widget } from "../components/Widget";
 import { prisma } from "../lib/prisma";
 

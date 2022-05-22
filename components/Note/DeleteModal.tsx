@@ -1,6 +1,7 @@
 import React from "react";
 import { Dialog } from "@headlessui/react";
 import { useRouter } from "next/router";
+import { Trash } from "phosphor-react";
 
 interface DeleteModalProps {
   isOpen: boolean;
@@ -39,13 +40,13 @@ export function DeleteModal({ isOpen, setIsOpen, noteId }: DeleteModalProps) {
     >
       <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
       <div className="fixed inset-0 flex items-center justify-center p-4">
-        <Dialog.Panel className="bg-slate-900 p-4 rounded-2xl shadow-lg mb-4 text-white flex flex-col justify-center gap-y-2">
+        <Dialog.Panel className="bg-white p-4 rounded-2xl shadow-lg mb-4 text-black flex flex-col justify-center gap-y-2 border-2 border-brand-500">
           <Dialog.Title className="text-xl font-bold">
             Deletar Lembrete
           </Dialog.Title>
           <Dialog.Description className="mb-2">
             Isso irá{" "}
-            <span className="text-red-400">deletar permanentemente</span> esse
+            <span className="text-red-600">deletar permanentemente</span> esse
             lembrete!
           </Dialog.Description>
 
@@ -53,18 +54,18 @@ export function DeleteModal({ isOpen, setIsOpen, noteId }: DeleteModalProps) {
             Tem certeza que quer deletar o lembrete?
           </p>
 
-          <div className="flex justify-center gap-x-2 mt-10">
-            <button
-              onClick={handleDelete}
-              className="py-2 px-6 bg-red-500 rounded-md border-transparent text-sm text-white leading-6 hover:bg-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-brand-500"
-            >
-              Sim, quero deletar
-            </button>
+          <div className="flex justify-center gap-x-2 mt-4">
             <button
               onClick={() => setIsOpen(false)}
-              className="py-2 px-6 bg-brand-500 rounded-md border-transparent text-sm text-white leading-6 hover:bg-brand-hover transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-brand-500"
+              className="py-2 px-6 border border-brand-500 rounded-md border-transparent text-sm leading-6 hover:bg-brand-light hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-brand-500"
             >
-              Não, cancelar
+              Cancelar
+            </button>
+            <button
+              onClick={handleDelete}
+              className="flex gap-x-2 items-center px-6 bg-red-500 rounded-md border-transparent text-sm text-white leading-6 hover:bg-red-600 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-red-900"
+            >
+              Deletar lembrete <Trash className="w-4 h-4" weight="bold" />
             </button>
           </div>
         </Dialog.Panel>
